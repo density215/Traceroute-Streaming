@@ -69,3 +69,12 @@ atlas_stream.start_stream(stream_type="result", **stream_parameters)    # start 
 
 be_verbose(1, "stream starting ...")
 atlas_stream.timeout(seconds=cmdl.secs)                                 # this really starts it ....
+
+be_verbose(1, "%d results received" % (nrecs))
+
+if len(buf) >0:
+        be_verbose(1, "storing %d results ..." % (len(buf)))
+        store_results(buf)
+        be_verbose(1, "results stored.")
+
+atlas_stream.disconnect()
